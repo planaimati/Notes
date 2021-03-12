@@ -125,7 +125,7 @@ export const AppContextProvider = ({ children }) => {
     }, 1000);
   };
 
-  //
+  // inputs
   const handleSetInputValue = (e) => {
     setInputValue((prevState) => (prevState = e.target.value));
   };
