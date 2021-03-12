@@ -56,6 +56,8 @@ export const AppContextProvider = ({ children }) => {
     setInputValue(edited.title);
   };
 
+  //submit
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -103,6 +105,8 @@ export const AppContextProvider = ({ children }) => {
     }
   };
 
+  //delete
+
   const handleDelete = (e) => {
     if (edit) {
       return;
@@ -117,7 +121,7 @@ export const AppContextProvider = ({ children }) => {
     }
 
     setTimeout(() => {
-      window.location.reload();
+      setEffect(effect + 1);
     }, 1000);
   };
 
