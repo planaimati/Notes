@@ -15,6 +15,7 @@ Example usages:
 -updating existing notes
 -removing existin notes
 -notes versioning - notes are storing in db
+-sorting data by name and date
 
 
 
