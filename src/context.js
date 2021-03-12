@@ -13,12 +13,11 @@ export const AppContextProvider = ({ children }) => {
   const [effect, setEffect] = useState(1);
 
   useEffect(() => {
-    fetch("https://backend-for-recruitment-task.herokuapp.com/notes", {}).then(
-      (response) =>
-        response.json().then((data) => {
-          setNotes(data);
-          setSortedItems(data);
-        })
+    fetch("http://localhost:8080/notes", {}).then((response) =>
+      response.json().then((data) => {
+        setNotes(data);
+        setSortedItems(data);
+      })
     );
   }, [effect]);
 
@@ -61,7 +60,7 @@ export const AppContextProvider = ({ children }) => {
     e.preventDefault();
 
     if (!edit) {
-      fetch("https://backend-for-recruitment-task.herokuapp.com/send", {
+      fetch("http://localhost:8080/send", {
         method: "POST",
 
         body: JSON.stringify({
@@ -76,7 +75,7 @@ export const AppContextProvider = ({ children }) => {
       setInputValue("");
       setTextAreaValue("");
     } else if (edit) {
-      fetch("https://backend-for-recruitment-task.herokuapp.com/update", {
+      fetch("http://localhost:8080/update", {
         method: "PUT",
         body: JSON.stringify({
           title: inputValue,
@@ -112,12 +111,9 @@ export const AppContextProvider = ({ children }) => {
 
       const { _id } = deleteItem;
 
-      fetch(
-        `https://backend-for-recruitment-task.herokuapp.com/delete/${_id}`,
-        {
-          method: "DELETE",
-        }
-      );
+      fetch(`http://localhost:8080/delete/${_id}`, {
+        method: "DELETE",
+      });
     }
 
     setTimeout(() => {
